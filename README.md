@@ -23,7 +23,44 @@ Before running the project, make sure you have the following installed:
 
 1. Clone the repository:
 
-```bash
-git clone https://github.com/yourusername/mern-google-auth-boilerplate.git
-cd mern-google-auth-boilerplate
-```
+   ```bash
+   git clone https://github.com/yourusername/mern-google-auth-boilerplate.git
+   ```
+
+2. Install dependencies:
+
+   ```bash
+   # inside client
+   cd client
+   npm install
+   ```
+
+   ```bash
+   # inside server
+   cd server
+   npm installl
+   ```
+
+3. Set up environment variables
+
+   create .env file both inside client and server directory and copy the varibales in .env.example in each directory.
+
+## Google OAuth 2.0 Setup
+
+To enable Google authentication, follow these steps:
+
+1. Go to the Google Developer Console.
+2. Create a new project.
+3. Enable the "Google+ API" in the Library section.
+4. Go to the "Credentials" tab and create credentials (OAuth client ID).
+   - Choose "Web application" as the application type.
+   - Set the authorized redirect URI to http://localhost:3000/auth/google/callback (adjust as needed).
+5. Copy the generated client ID and client secret to your .env file.
+
+## Contributing
+
+Feel free to contribute to this project. Create issues, submit pull requests, or suggest improvements.
+
+## License
+
+This project is licensed under the MIT License.
