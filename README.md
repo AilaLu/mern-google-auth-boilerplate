@@ -24,7 +24,7 @@ Before running the project, make sure you have the following installed:
 1. Clone the repository:
 
    ```bash
-   git clone https://github.com/yourusername/mern-google-auth-boilerplate.git
+   git clone https://github.com/DineshRout779/mern-google-auth-boilerplate.git
    ```
 
 2. Install dependencies:
@@ -43,7 +43,7 @@ Before running the project, make sure you have the following installed:
 
 3. Set up environment variables
 
-   create .env file both inside client and server directory and copy the varibales in .env.example in each directory.
+   Create .env file both inside client and server directory and copy the variables in .env.example in each directory.
 
 ## Google OAuth 2.0 Setup
 
