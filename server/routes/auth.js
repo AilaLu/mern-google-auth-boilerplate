@@ -1,12 +1,13 @@
-const router = require('express').Router();
-const bcrypt = require('bcryptjs');
-const User = require('../model/User');
-const passport = require('passport');
-const jwt = require('jsonwebtoken');
-const { verifyToken } = require('../middlewares/auth');
-const configs = require('../configs');
+import express from 'express';
+import bcrypt from 'bcryptjs';
+import passport from 'passport';
+import jwt from 'jsonwebtoken';
+
+import {User}from '../model/User.js';
+import { verifyToken } from '../middlewares/auth.js';
 
 // Signup Route
+const router = express.Router()
 router.post('/signup', async (req, res) => {
   try {
     const { username, password } = req.body;
@@ -100,4 +101,4 @@ router.get('/isAuthenticated', verifyToken, (req, res) => {
   });
 });
 
-module.exports = router;
+export default router; 

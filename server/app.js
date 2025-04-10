@@ -1,26 +1,30 @@
-require('dotenv').config();
-const express = require('express');
-const mongoose = require('mongoose');
-require('./passport/passport');
-const passport = require('passport');
-const configs = require('./configs');
+import dotenv from "dotenv";
+import router from "./routes/auth.js"
+import cors from "cors"
+import morgan from "morgan"
+import express from "express";
+dotenv.config();
+import mongoose from "mongoose";
+import passport from "./passport/passport.js";
+// import passport from "passport";
+
 const app = express();
+app.use(cors())
+app.use(morgan("dev"))
 const port = process.env.PORT || 3000;
 
 app.use(express.json());
-app.use(require('cors')());
-app.use(require('morgan')('dev'));
 app.use(passport.initialize());
 
 // Connect to MongoDB
-mongoose.connect(configs.dbURL);
+mongoose.connect(process.env.MONGO_URL);
 const db = mongoose.connection;
-db.on('error', console.error.bind(console, 'MongoDB connection error:'));
-db.once('open', () => {
-  console.log('Connected to MongoDB');
+db.on("error", console.error.bind(console, "MongoDB connection error:"));
+db.once("open", () => {
+  console.log("Connected to MongoDB");
 });
 
-app.use('/auth', require('./routes/auth'));
+app.use("/auth", router);
 
 // Start the server
 app.listen(port, () => {
